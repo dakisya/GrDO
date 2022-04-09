@@ -19,7 +19,6 @@ class RequestMapper : public HttpRequestHandler {
     Q_OBJECT
     Q_DISABLE_COPY(RequestMapper)
 public:
-
     /**
       Constructor.
       @param parent Parent object
@@ -37,7 +36,6 @@ public:
       @param response Must be used to return the response
     */
     void service(HttpRequest& request, HttpResponse& response);
-
 };
 
 #endif // REQUESTMAPPER_H

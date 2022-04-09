@@ -8,6 +8,8 @@
 #include "global.h"
 #include "httplistener.h"
 #include "requestmapper.h"
+#include <QtSql>
+#include <QSqlQuery>
 
 using namespace stefanfrings;
 
@@ -46,6 +48,22 @@ QString searchConfigFile()
     return nullptr;
 }
 
+/** Подключаем бд */
+QString connectDb()
+{
+    grdo_db=QSqlDatabase::addDatabase("QSQLITE");
+    QSqlQuery *query;
+    grdo_db.setDatabaseName("../gr_do.db");
+    if (grdo_db.open()){
+        query = new QSqlQuery(grdo_db);
+        query->exec("CREATE TABLE IF NOT EXISTS news(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dt_created DATETIME, dt_posted DATETIME, subject VARCHAR(255), body TEXT, img_url VARCHAR(255));");
+    }
+    else
+    {
+        qWarning("Gr_DO DB NOT Connected...");
+    }
+    return nullptr;
+}
 
 /**
   Entry point of the program.
@@ -57,6 +75,8 @@ int main(int argc, char *argv[])
 
     // Find the configuration file
     QString configFileName=searchConfigFile();
+
+    connectDb();
 
     // Configure logging into a file
     QSettings* logSettings=new QSettings(configFileName,QSettings::IniFormat,&app);

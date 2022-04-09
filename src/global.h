@@ -10,6 +10,7 @@
 #include "httpsessionstore.h"
 #include "staticfilecontroller.h"
 #include "filelogger.h"
+#include <QSqlDatabase>
 
 using namespace stefanfrings;
 
@@ -29,5 +30,7 @@ extern  StaticFileController* staticFileController;
 
 /** Redirects log messages to a file */
 extern  FileLogger* logger;
+
+extern QSqlDatabase grdo_db;
 
 #endif // GLOBAL_H

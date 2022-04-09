@@ -9,3 +9,5 @@ TemplateCache* templateCache;
 HttpSessionStore* sessionStore;
 StaticFileController* staticFileController;
 FileLogger* logger;
+QSqlDatabase grdo_db;
+

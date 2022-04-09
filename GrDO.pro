@@ -3,7 +3,7 @@
 
 TARGET = GrDO
 TEMPLATE = app
-QT = core network
+QT = core network sql
 CONFIG += console
 
 HEADERS += \
@@ -26,7 +26,7 @@ SOURCES += src/main.cpp \
            src/controller/fileuploadcontroller.cpp \
            src/controller/sessioncontroller.cpp
 
-OTHER_FILES += etc/* etc/pages/* logs/*
+OTHER_FILES += etc/* etc/pages/* logs/* etc/templates/*
 
 DISTFILES += ../CHANGELOG.txt ../LICENSE.txt ../README.txt
 
