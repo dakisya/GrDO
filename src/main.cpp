@@ -57,6 +57,7 @@ QString connectDb()
     if (grdo_db.open()){
         query = new QSqlQuery(grdo_db);
         query->exec("CREATE TABLE IF NOT EXISTS news(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dt_created DATETIME, dt_posted DATETIME, subject VARCHAR(255), body TEXT, img_url VARCHAR(255));");
+        query->exec("CREATE TABLE IF NOT EXISTS faq(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dt_created DATETIME, q_body VARCHAR(255), a_body TEXT, img_url VARCHAR(255));");
     }
     else
     {

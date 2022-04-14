@@ -19,7 +19,7 @@
             <li class="nav-item"><a href="/main/faq" class="nav-link link-dark px-2">FAQ</a></li>
           </ul>
           <ul class="nav">
-            <li class="nav-item"><a href="/admin" class="nav-link link-dark px-2">Admin</a></li>
+            <li class="nav-item"><a href="/" class="nav-link link-dark px-2">Выйти</a></li>
           </ul>
         </div>
      </nav>
@@ -28,16 +28,23 @@
         <div class="container d-flex flex-wrap justify-content-center">
           <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Наименование ВУЗа</span>
+            <span class="fs-4">Раздел администратора: {title}</span>
           </a>
         </div>
     </header>
 
 
     <div class="container py-3">
-	<main>
-                {main}
-	</main>
+        <main>
+            <form method="post">
+                <input type="hidden" name="action" value="{action}">
+                <label for="subject" class="form-label">Тема</label>
+                <input type="text" name="subject" class="form-control" value="{subject}"><br>
+                <label for="body" class="form-label">Описание:</label>
+                <textarea rows="4" cols="50" name="body" class="form-control">{body}</textarea><br>
+                <input type="submit">
+            </form>
+        </main>
     </div>
 
 

@@ -36,7 +36,9 @@
 
     <div class="container py-3">
 	<main>
-                {main}
+            <h1 class="mt-5">{subject}</h1>
+            <p class="lead">{body}</p>
+            <p><a href="/main/news">К списку новостей</a></p>
 	</main>
     </div>
 

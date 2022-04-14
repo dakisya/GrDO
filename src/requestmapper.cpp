@@ -72,18 +72,23 @@ void RequestMapper::service(HttpRequest& request, HttpResponse& response)
         staticFileController->service(request, response);
     }
 */
-    if (path == "/" || path.startsWith("/template"))
+    if (path == "/" || path.startsWith("/main") || path.startsWith("/admin"))
     {
         TemplateController().service(request, response);
     }
-    else if (path.startsWith("/add"))
+//    else if (path.startsWith("/admin"))
+//    {
+//       FormController().service(request, response);
+//    }
+    else if (path == "/file")
     {
-       FormController().service(request, response);
+        FileUploadController().service(request, response);
     }
     else
     {
         staticFileController->service(request, response);
     }
+
     qDebug("RequestMapper: finished request");
 
     // Clear the log buffer
